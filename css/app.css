@@ -251,3 +251,45 @@ h2.sec { display: flex; align-items: center; gap: 10px; }
 .settings .row input[type=text], .settings .row input[type=password], .settings .row select { background: var(--bg2); border: 1px solid var(--line2); border-radius: 8px; padding: 6px 10px; }
 .settings h3 { margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
 ::selection { background: color-mix(in srgb, var(--amber) 40%, transparent); }
+
+
+/* ===== 코드 진행 편집기 ===== */
+.work-head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+.work-name { flex: 1; min-width: 180px; background: transparent; border: none; border-bottom: 1.5px solid var(--line2); color: var(--ink); font-size: 1.15rem; font-weight: 700; font-family: 'Bricolage Grotesque', 'Noto Sans KR', sans-serif; padding: 4px 2px; }
+.work-name:focus { outline: none; border-color: var(--amber); }
+.work-acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.barsrow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 560px) { .barsrow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.barcell { position: relative; border: 1px solid var(--line2); border-radius: 10px; background: var(--bg2); overflow: hidden; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.barcell.sel { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+.barcell.now { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal), 0 0 18px color-mix(in srgb, var(--teal) 30%, transparent); }
+.barno { position: absolute; top: 4px; left: 7px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-dim); pointer-events: none; }
+.halves { display: flex; min-height: 74px; }
+.half { flex: 1; background: transparent; border: none; border-left: 1px dashed var(--line2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 16px 4px 8px; cursor: pointer; color: var(--ink); }
+.half.a { border-left: none; }
+.half:hover { background: color-mix(in srgb, var(--amber) 8%, transparent); }
+.half.on { background: color-mix(in srgb, var(--amber) 16%, transparent); }
+.half .cname { font-size: 1.12rem; font-weight: 700; font-family: 'Bricolage Grotesque', sans-serif; }
+.half .cdeg { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-dim); }
+.cdeg.fn-T { color: var(--amber); } .cdeg.fn-S { color: var(--teal); } .cdeg.fn-D { color: var(--rose); }
+.ph { margin: 0 0 10px; font-size: 1.05rem; }
+.pal { display: flex; flex-wrap: wrap; gap: 7px; }
+.palc { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 62px; padding: 7px 10px; border: 1.5px solid var(--line2); border-radius: 10px; background: var(--bg2); color: var(--ink); cursor: pointer; }
+.palc b { font-size: 1rem; font-family: 'Bricolage Grotesque', sans-serif; }
+.palc i { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-dim); }
+.palc:hover { transform: translateY(-2px); border-color: var(--amber); }
+.palc.fn-T { border-color: color-mix(in srgb, var(--amber) 55%, var(--line2)); }
+.palc.fn-S { border-color: color-mix(in srgb, var(--teal) 55%, var(--line2)); }
+.palc.fn-D { border-color: color-mix(in srgb, var(--rose) 55%, var(--line2)); }
+.palc.out { border-style: dashed; }
+.pal-title { font-size: .9rem; margin: 14px 0 8px; color: var(--ink-soft); font-weight: 500; }
+.pal-acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.chips .chip em { font-style: normal; display: block; font-size: 10px; color: var(--ink-dim); }
+.work-list { display: flex; flex-direction: column; gap: 6px; }
+.work-row { display: flex; gap: 6px; align-items: stretch; }
+.work-row.cur .work-open { border-color: var(--amber); }
+.work-open { flex: 1; text-align: left; background: var(--bg2); border: 1.5px solid var(--line2); border-radius: 9px; padding: 8px 12px; color: var(--ink); cursor: pointer; font-weight: 600; }
+.work-open em { font-style: normal; display: block; font-size: 11px; color: var(--ink-dim); font-weight: 400; font-family: 'JetBrains Mono', monospace; }
+.work-open:hover { border-color: var(--amber); }
+.work-del { background: transparent; border: 1.5px solid var(--line2); border-radius: 9px; padding: 0 12px; color: var(--ink-dim); cursor: pointer; }
+.work-del:hover { color: var(--rose); border-color: var(--rose); }

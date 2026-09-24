@@ -6,6 +6,7 @@ import { STAFFS } from '../data/staffs.js';
 import { TOC } from '../data/toc.js';
 import { mountGrooveLab } from './labs/groove.js';
 import { mountMelodyLab } from './labs/melody.js';
+import { mountChordLab } from './labs/chords.js';
 import { TTS } from './tts.js';
 
 const $ = (q, el = document) => el.querySelector(q);
@@ -32,7 +33,7 @@ function renderNav() {
     <div class="nav-group"><div class="nav-title">실습</div>
       <a class="nav-item" href="#/lab/groove"><span class="num">♪</span><span>그루브 랩</span></a>
       <a class="nav-item" href="#/lab/melody"><span class="num">♪</span><span>멜로디 랩</span></a>
-      <a class="nav-item" href="#/lab/chords"><span class="num">♪</span><span>코드 진행 편집기</span><em>2단계</em></a>
+      <a class="nav-item" href="#/lab/chords"><span class="num">♪</span><span>코드 진행 편집기</span></a>
       <a class="nav-item" href="#/lab/song"><span class="num">♪</span><span>곡 만들기</span><em>2단계</em></a></div>
     <div class="nav-group"><div class="nav-title">나</div>
       <a class="nav-item" href="#/quest"><span class="num">✓</span><span>퀘스트 보드</span></a>
@@ -220,7 +221,7 @@ async function route() {
   if (kind === 'ch') await loadChapter(+a, b);
   else if (kind === 'lab' && a === 'groove') { view().innerHTML = ''; currentLab = mountGrooveLab(view(), b); window.scrollTo(0, 0); }
   else if (kind === 'lab' && a === 'melody') { view().innerHTML = ''; currentLab = mountMelodyLab(view(), b); window.scrollTo(0, 0); }
-  else if (kind === 'lab' && a === 'chords') loadPlaceholder('코드 진행 편집기', 'LAB · STAGE 2', '마디에 코드를 넣고 루프로 듣고, 키를 바꾸고, 디그리를 확인합니다.');
+  else if (kind === 'lab' && a === 'chords') { view().innerHTML = ''; currentLab = mountChordLab(view(), b); window.scrollTo(0, 0); }
   else if (kind === 'lab' && a === 'song') loadPlaceholder('곡 만들기', 'LAB · STAGE 2', '코드·드럼·멜로디·베이스를 한 화면에서 만들고 저장합니다.');
   else if (kind === 'quest') loadQuest();
   else if (kind === 'coco') loadPlaceholder('코코에게 묻기', 'STAGE 3', '교재와 내 작업물을 아는 베테랑 프로듀서 코코와 실시간으로 이야기합니다.');
